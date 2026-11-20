@@ -1,0 +1,6 @@
+appId: com.barcellosdeaguiar.MyMovieList
+---
+- launchApp
+- extendedWaitUntil:
+    visible: "Popular"
+    timeout: 15000

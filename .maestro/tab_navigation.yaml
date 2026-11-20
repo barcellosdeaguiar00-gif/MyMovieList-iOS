@@ -1,0 +1,11 @@
+appId: com.barcellosdeaguiar.MyMovieList
+---
+- launchApp
+- tapOn: "Search"
+- assertVisible: "Under construction"
+- tapOn: "Favorite"
+- assertVisible: "Under construction"
+- tapOn: "Home"
+- extendedWaitUntil:
+    visible: "Popular"
+    timeout: 15000
