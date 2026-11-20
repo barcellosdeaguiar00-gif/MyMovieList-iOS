@@ -1,6 +1,6 @@
-import Testing
-import MMLNetworking
 @testable import MMLData
+import MMLNetworking
+import Testing
 
 @Suite("MovieMapper")
 struct MovieMapperTests {

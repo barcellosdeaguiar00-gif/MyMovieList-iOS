@@ -14,7 +14,8 @@ public extension Image {
 
     private static func loadBundledImage(named name: String, extension ext: String, systemFallback: String) -> Image {
         guard let path = Bundle.module.path(forResource: name, ofType: ext),
-              let uiImage = UIImage(contentsOfFile: path) else {
+              let uiImage = UIImage(contentsOfFile: path)
+        else {
             return Image(systemName: systemFallback)
         }
         return Image(uiImage: uiImage)

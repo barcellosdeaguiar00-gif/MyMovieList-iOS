@@ -1,5 +1,5 @@
-import Testing
 @testable import MMLCore
+import Testing
 
 @Test
 func httpErrorsWithSamePayloadAreEqual() {

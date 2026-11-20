@@ -13,8 +13,8 @@ public final class HomeViewModel {
         self.getPopularMoviesListUseCase = getPopularMoviesListUseCase
     }
 
-    // Fetch is not triggered here (unlike the Android ViewModel's init + viewModelScope);
-    // SwiftUI's idiomatic equivalent is calling load() from a view's .task modifier.
+    /// Fetch is not triggered here (unlike the Android ViewModel's init + viewModelScope);
+    /// SwiftUI's idiomatic equivalent is calling load() from a view's .task modifier.
     public func load() async {
         state = .loading
         do {

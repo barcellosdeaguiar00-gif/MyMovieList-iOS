@@ -22,7 +22,7 @@ public struct HomeView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         case .retry:
             RetryView(action: { Task { await viewModel.retry() } })
-        case .content(let movies):
+        case let .content(movies):
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(makeMovieSections(movies)) { section in
@@ -35,7 +35,7 @@ public struct HomeView: View {
         }
     }
 
-    // TODO map other api endpoints
+    // TODO: map other api endpoints
     private func makeMovieSections(_ movies: [Movie]) -> [MovieSection] {
         [
             MovieSection(title: "Popular", movies: movies),

@@ -1,0 +1,7 @@
+--indent 4
+--swiftversion 6.0
+--linebreaks lf
+--allman false
+--indentcase false
+--ifdef no-indent
+--trailingcommas never

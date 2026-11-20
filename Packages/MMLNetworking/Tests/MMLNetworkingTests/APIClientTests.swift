@@ -1,7 +1,7 @@
 import Foundation
-import Testing
 import MMLCore
 @testable import MMLNetworking
+import Testing
 
 @Suite("URLSessionAPIClient.buildRequest")
 struct BuildRequestTests {

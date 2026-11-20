@@ -1,0 +1,47 @@
+name: Build & Test
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  build_and_test:
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install tools via Homebrew
+        run: |
+          brew install xcodegen swiftlint swiftformat
+
+      - name: Setup Secrets.xcconfig
+        run: cp Secrets.xcconfig.sample Secrets.xcconfig
+
+      - name: Run SwiftLint
+        run: swiftlint lint
+
+      - name: Run SwiftFormat lint
+        run: swiftformat --lint .
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Run MMLCore tests
+        run: xcodebuild test -scheme MMLCore -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+
+      - name: Run MMLDomain tests
+        run: xcodebuild test -scheme MMLDomain -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+
+      - name: Run MMLNetworking tests
+        run: xcodebuild test -scheme MMLNetworking -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+
+      - name: Run MMLData tests
+        run: xcodebuild test -scheme MMLData -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+
+      - name: Run MMLHomeFeature tests
+        run: xcodebuild test -scheme MMLHomeFeature -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16'
+
+      - name: Build MyMovieList app
+        run: xcodebuild build -scheme MyMovieList -destination 'generic/platform=iOS Simulator'

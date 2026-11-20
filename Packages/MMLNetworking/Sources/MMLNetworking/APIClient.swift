@@ -12,8 +12,8 @@ public struct URLSessionAPIClient: APIClient {
         self.session = session
     }
 
-    // api_key is appended as a query parameter on every request (mirrors the Ktor
-    // ApiKeyPlugin on the Android side), not sent as a header.
+    /// api_key is appended as a query parameter on every request (mirrors the Ktor
+    /// ApiKeyPlugin on the Android side), not sent as a header.
     public static func buildRequest(page: Int, baseURL: String = TMDBSecrets.baseURL, apiKey: String = TMDBSecrets.apiKey) -> URLRequest {
         var components = URLComponents(string: baseURL + "popular")
         components?.queryItems = [
@@ -45,7 +45,7 @@ public struct URLSessionAPIClient: APIClient {
             throw AppError.generic
         }
 
-        guard (200...299).contains(httpResponse.statusCode) else {
+        guard (200 ... 299).contains(httpResponse.statusCode) else {
             throw Self.mapHTTPError(statusCode: httpResponse.statusCode, data: data)
         }
 
@@ -59,9 +59,9 @@ public struct URLSessionAPIClient: APIClient {
     public static func mapURLError(_ error: URLError) -> AppError {
         switch error.code {
         case .notConnectedToInternet, .timedOut, .networkConnectionLost, .cannotConnectToHost, .cannotFindHost, .dataNotAllowed, .internationalRoamingOff:
-            return .noConnection
+            .noConnection
         default:
-            return .generic
+            .generic
         }
     }
 

@@ -1,7 +1,7 @@
-import Testing
 import MMLCore
-import MMLNetworking
 @testable import MMLData
+import MMLNetworking
+import Testing
 
 @Suite("MovieRepositoryImpl")
 struct MovieRepositoryImplTests {

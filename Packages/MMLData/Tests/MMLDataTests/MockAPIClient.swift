@@ -1,5 +1,5 @@
-import MMLNetworking
 import MMLCore
+import MMLNetworking
 
 final class MockAPIClient: APIClient, @unchecked Sendable {
     var result: Result<FetchPopularMoviesResponseDTO, AppError>

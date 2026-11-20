@@ -4,9 +4,11 @@ public struct Movie: Sendable, Equatable, Identifiable {
     public let releaseDate: String
     public let posterUrl: String
 
-    // No stable backend id is available on this model; derive one deterministically
-    // from title+releaseDate so Identifiable is stable across re-fetches of the same data.
-    public var id: String { "\(title)-\(releaseDate)" }
+    /// No stable backend id is available on this model; derive one deterministically
+    /// from title+releaseDate so Identifiable is stable across re-fetches of the same data.
+    public var id: String {
+        "\(title)-\(releaseDate)"
+    }
 
     public init(title: String, originalLanguage: String, releaseDate: String, posterUrl: String) {
         self.title = title

@@ -1,5 +1,5 @@
-import Testing
 @testable import MMLDomain
+import Testing
 
 private struct MockMovieRepository: MovieRepository {
     enum Behavior {
@@ -9,11 +9,11 @@ private struct MockMovieRepository: MovieRepository {
 
     let behavior: Behavior
 
-    func fetchPopularMovies(page: Int) async throws -> [Movie] {
+    func fetchPopularMovies(page _: Int) async throws -> [Movie] {
         switch behavior {
-        case .success(let movies):
-            return movies
-        case .failure(let error):
+        case let .success(movies):
+            movies
+        case let .failure(error):
             throw error
         }
     }

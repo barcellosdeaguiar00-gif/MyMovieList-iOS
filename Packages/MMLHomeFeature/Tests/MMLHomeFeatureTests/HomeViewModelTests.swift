@@ -1,7 +1,6 @@
 import MMLDomain
-import Testing
-
 @testable import MMLHomeFeature
+import Testing
 
 private final class MockMovieRepository: MovieRepository, @unchecked Sendable {
     enum Behavior {
@@ -16,12 +15,12 @@ private final class MockMovieRepository: MovieRepository, @unchecked Sendable {
         self.behavior = behavior
     }
 
-    func fetchPopularMovies(page: Int) async throws -> [Movie] {
+    func fetchPopularMovies(page _: Int) async throws -> [Movie] {
         callCount += 1
         switch behavior {
-        case .success(let movies):
+        case let .success(movies):
             return movies
-        case .failure(let error):
+        case let .failure(error):
             throw error
         }
     }

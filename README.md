@@ -14,7 +14,21 @@ practices instead of sharing code with the Android app.
 - `async`/`await` networking against the TMDB API
 - Swift Testing for unit tests
 - [XcodeGen](https://github.com/yonaskolb/XcodeGen) generates the `.xcodeproj` from `project.yml`
-- SwiftLint + SwiftFormat
+- SwiftLint + SwiftFormat for code quality
+- GitHub Actions CI for automated lint, format, test, and build checks
+
+## Architecture
+
+The app is organized into six local Swift Package Manager modules, each with clear separation of concerns:
+
+- **MMLCore** — Shared utilities, extensions, and foundation types
+- **MMLDomain** — Domain models and use cases (business logic)
+- **MMLNetworking** — HTTP client and API request/response handling
+- **MMLData** — Repository implementations and data sources
+- **MMLTheme** — Design tokens, colors, typography, and shared UI components
+- **MMLHomeFeature** — Feature module for the Home screen with MVVM structure
+
+Each package (except MMLTheme) includes comprehensive unit tests via Swift Testing.
 
 ## Setup
 
@@ -22,6 +36,16 @@ practices instead of sharing code with the Android app.
 2. Copy `Secrets.xcconfig.sample` to `Secrets.xcconfig` and fill in your TMDB API key
 3. `xcodegen generate`
 4. Open the generated `.xcodeproj` in Xcode and run the `MyMovieList` scheme
+
+## Development
+
+Before submitting a pull request, ensure:
+- `swiftlint lint` passes with 0 violations
+- `swiftformat --lint .` shows no formatting issues
+- All tests pass: `xcodebuild test -scheme <PackageName>`
+- The app builds: `xcodebuild build -scheme MyMovieList`
+
+The GitHub Actions workflow in `.github/workflows/build_test.yml` automatically checks these on every pull request to `master`.
 
 ## Scope
 

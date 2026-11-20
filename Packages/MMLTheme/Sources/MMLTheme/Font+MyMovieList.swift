@@ -26,85 +26,85 @@ public extension Font {
 @available(macOS 10.15, iOS 13.0, *)
 public extension Text {
     func mmlDisplayLarge() -> some View {
-        self.font(.mmlDisplayLarge)
+        font(.mmlDisplayLarge)
             .tracking(-0.25)
             .lineSpacing(7)
     }
 
     func mmlDisplayMedium() -> some View {
-        self.font(.mmlDisplayMedium)
+        font(.mmlDisplayMedium)
             .lineSpacing(7)
     }
 
     func mmlDisplaySmall() -> some View {
-        self.font(.mmlDisplaySmall)
+        font(.mmlDisplaySmall)
             .lineSpacing(8)
     }
 
     func mmlHeadlineLarge() -> some View {
-        self.font(.mmlHeadlineLarge)
+        font(.mmlHeadlineLarge)
             .lineSpacing(8)
     }
 
     func mmlHeadlineMedium() -> some View {
-        self.font(.mmlHeadlineMedium)
+        font(.mmlHeadlineMedium)
             .lineSpacing(8)
     }
 
     func mmlHeadlineSmall() -> some View {
-        self.font(.mmlHeadlineSmall)
+        font(.mmlHeadlineSmall)
             .lineSpacing(8)
     }
 
     func mmlTitleLarge() -> some View {
-        self.font(.mmlTitleLarge)
+        font(.mmlTitleLarge)
             .lineSpacing(6)
     }
 
     func mmlTitleMedium() -> some View {
-        self.font(.mmlTitleMedium)
+        font(.mmlTitleMedium)
             .tracking(0.15)
             .lineSpacing(8)
     }
 
     func mmlTitleSmall() -> some View {
-        self.font(.mmlTitleSmall)
+        font(.mmlTitleSmall)
             .tracking(0.1)
             .lineSpacing(6)
     }
 
     func mmlLabelLarge() -> some View {
-        self.font(.mmlLabelLarge)
+        font(.mmlLabelLarge)
             .tracking(0.1)
             .lineSpacing(6)
     }
 
     func mmlLabelMedium() -> some View {
-        self.font(.mmlLabelMedium)
+        font(.mmlLabelMedium)
             .tracking(0.5)
             .lineSpacing(4)
     }
 
     func mmlLabelSmall() -> some View {
-        self.font(.mmlLabelSmall)
+        font(.mmlLabelSmall)
             .tracking(0.5)
             .lineSpacing(5)
     }
 
     func mmlBodyLarge() -> some View {
-        self.font(.mmlBodyLarge)
+        font(.mmlBodyLarge)
             .tracking(0.5)
             .lineSpacing(8)
     }
 
     func mmlBodyMedium() -> some View {
-        self.font(.mmlBodyMedium)
+        font(.mmlBodyMedium)
             .tracking(0.25)
             .lineSpacing(6)
     }
 
     func mmlBodySmall() -> some View {
-        self.font(.mmlBodySmall)
+        font(.mmlBodySmall)
             .tracking(0.4)
             .lineSpacing(4)
     }
