@@ -5,7 +5,8 @@ a Kotlin Multiplatform app that lists TMDB's popular movies. This project
 re-implements the same features using idiomatic, current iOS development
 practices instead of sharing code with the Android app.
 
-> Status: under construction — see the project board / commit history for progress.
+> Status: Home screen is fully working (live TMDB data); Search and Favorite
+> are intentional "under construction" placeholders, matching the Android app.
 
 ## Stack
 
@@ -46,6 +47,11 @@ Before submitting a pull request, ensure:
 - The app builds: `xcodebuild build -scheme MyMovieList`
 
 The GitHub Actions workflow in `.github/workflows/build_test.yml` automatically checks these on every pull request to `master`.
+
+**Careful:** the CI workflow's "Setup Secrets.xcconfig" step runs
+`cp Secrets.xcconfig.sample Secrets.xcconfig`. Don't run that command locally
+once you have a real `Secrets.xcconfig` configured — it will silently
+overwrite your real TMDB key with the empty sample.
 
 ## Scope
 
