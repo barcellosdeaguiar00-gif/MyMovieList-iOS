@@ -1,0 +1,57 @@
+name: MyMovieList
+options:
+  bundleIdPrefix: com.barcellosdeaguiar
+  deploymentTarget:
+    iOS: "17.0"
+configFiles:
+  Debug: Secrets.xcconfig
+  Release: Secrets.xcconfig
+packages:
+  MMLCore:
+    path: Packages/MMLCore
+  MMLDomain:
+    path: Packages/MMLDomain
+  MMLNetworking:
+    path: Packages/MMLNetworking
+  MMLData:
+    path: Packages/MMLData
+  MMLTheme:
+    path: Packages/MMLTheme
+  MMLHomeFeature:
+    path: Packages/MMLHomeFeature
+targets:
+  MyMovieList:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: MyMovieList
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        TMDB_API_KEY: $(TMDB_API_KEY)
+        TMDB_API_URL: $(TMDB_API_URL)
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.barcellosdeaguiar.MyMovieList
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+    dependencies:
+      - package: MMLCore
+      - package: MMLDomain
+      - package: MMLNetworking
+      - package: MMLData
+      - package: MMLTheme
+      - package: MMLHomeFeature
+schemes:
+  MyMovieList:
+    build:
+      targets:
+        MyMovieList: all
+    run:
+      config: Debug
+    test:
+      config: Debug
